@@ -18,7 +18,7 @@
       "interface": {
         "displayName": "ZenUML for Confluence",
         "shortDescription": "Diagrams in your Confluence",
-        "longDescription": "Read, create and update the diagrams on your Confluence Cloud pages from ChatGPT.\n\nAsk for a sequence diagram of a code path, a Mermaid flowchart of a runbook, or a fix to a diagram that no longer matches your system. ChatGPT writes the diagram source and ZenUML saves it to the page, as you, through your own Atlassian sign-in. It can reach only the sites and pages your Atlassian account can already reach.\n\nSupports ZenUML sequence diagrams, Mermaid, PlantUML, diagrams.net (draw.io) graphs and OpenAPI specifications. Sequence, Mermaid and PlantUML diagrams are shown rendered in the conversation.\n\nRequires the ZenUML Diagrams for Confluence app on your Confluence Cloud site.",
+        "longDescription": "Read, create and update the diagrams on your Confluence Cloud pages from ChatGPT.\n\nAsk for a sequence diagram of a code path, a Mermaid flowchart of a runbook, or a fix to a diagram that no longer matches your system. ChatGPT writes the diagram source and ZenUML saves it to the page, as you, through your own Atlassian sign-in. It can reach only the sites and pages your Atlassian account can already reach.\n\nSupports ZenUML sequence diagrams, Mermaid, PlantUML, diagrams.net (draw.io) graphs and OpenAPI specifications. Sequence, Mermaid and PlantUML diagrams are shown rendered in the conversation.\n\nRequires a ZenUML app on your Confluence Cloud site: the free ZenUML Diagrams and Open API Lite, or ZenUML Diagrams for Confluence.",
         "developerName": "ZenUML",
         "category": "Productivity",
         "capabilities": [

@@ -11,9 +11,10 @@ PlantUML diagrams are also shown rendered inline in the conversation.
 
 ## What you need
 
-- A Confluence Cloud site with the
-  [ZenUML Diagrams for Confluence](https://marketplace.atlassian.com/apps/1218380/zenuml-diagrams-for-confluence-freemium)
-  app installed.
+- A Confluence Cloud site with a ZenUML app installed: the free
+  [ZenUML Diagrams and Open API Lite](https://marketplace.atlassian.com/apps/1219422/zenuml-diagrams-and-open-api-lite)
+  or the paid
+  [ZenUML Diagrams for Confluence](https://marketplace.atlassian.com/apps/1218380/zenuml-diagrams-for-confluence).
 - An Atlassian account that can view and edit the pages you want to work on.
 
 ## Install
