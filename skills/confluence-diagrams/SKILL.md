@@ -10,6 +10,10 @@ Cloud sites as the user, through the Atlassian authorization they granted. It
 can only reach sites and pages that user can reach, and it needs the ZenUML app
 installed on the site.
 
+If the `zenuml` connector's tools are not available, or the user only wants to
+see a diagram rather than save it, draw it with `render_diagram` from the
+`zenuml-render` connector instead (see the `draw-diagrams` skill).
+
 ## Workflow
 
 1. **Pick the site.** Call `list_sites` and use the `cloudId` of the site the

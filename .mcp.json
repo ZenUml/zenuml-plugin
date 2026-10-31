@@ -3,6 +3,10 @@
     "zenuml": {
       "type": "http",
       "url": "https://conf-lite.zenuml.com/agent-link/mcp"
+    },
+    "zenuml-render": {
+      "type": "http",
+      "url": "https://conf-lite.zenuml.com/mcp/render"
     }
   }
 }

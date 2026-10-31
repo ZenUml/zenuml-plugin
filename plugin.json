@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "zenuml",
-  "version": "1.0.0",
-  "description": "Read, create and update ZenUML, Mermaid, PlantUML and diagrams.net diagrams on your Confluence Cloud pages, acting as you through Atlassian OAuth.",
+  "version": "1.1.0",
+  "description": "Draw ZenUML sequence diagrams, Mermaid, PlantUML, draw.io and OpenAPI diagrams in ChatGPT from text. No account or sign-in; nothing is saved.",
   "author": {
     "name": "ZenUML",
     "email": "support@zenuml.com",
@@ -11,31 +11,38 @@
   "homepage": "https://zenuml.com/docs/products/zenuml-diagrams-for-confluence/mcp-server/",
   "repository": "https://github.com/ZenUml/zenuml-plugin",
   "license": "MIT",
-  "keywords": ["confluence", "diagrams", "sequence-diagram", "mermaid", "plantuml", "uml", "documentation"],
+  "keywords": [
+    "confluence",
+    "diagrams",
+    "sequence-diagram",
+    "mermaid",
+    "plantuml",
+    "uml",
+    "documentation"
+  ],
   "extensions": {
     "com.openai": {
-      "onboardingSkill": "./skills/confluence-diagrams/SKILL.md",
+      "onboardingSkill": "./skills/draw-diagrams/SKILL.md",
       "interface": {
-        "displayName": "ZenUML for Confluence",
-        "shortDescription": "Diagrams in your Confluence",
-        "longDescription": "Read, create and update the diagrams on your Confluence Cloud pages from ChatGPT.\n\nAsk for a sequence diagram of a code path, a Mermaid flowchart of a runbook, or a fix to a diagram that no longer matches your system. ChatGPT writes the diagram source and ZenUML saves it to the page, as you, through your own Atlassian sign-in. It can reach only the sites and pages your Atlassian account can already reach.\n\nSupports ZenUML sequence diagrams, Mermaid, PlantUML, diagrams.net (draw.io) graphs and OpenAPI specifications. Sequence, Mermaid and PlantUML diagrams are shown rendered in the conversation.\n\nRequires a ZenUML app on your Confluence Cloud site: the free ZenUML Diagrams and Open API Lite, or ZenUML Diagrams for Confluence.",
+        "displayName": "ZenUML Diagrams",
+        "shortDescription": "Draw diagrams from text",
+        "longDescription": "Draw diagrams in ChatGPT from text: ZenUML sequence diagrams, Mermaid flowcharts and other Mermaid diagrams, PlantUML, diagrams.net (draw.io) XML, and OpenAPI or Swagger specifications.\n\nAsk for a sequence diagram of a code path, a flowchart of a process, or a picture of an API, and ChatGPT writes the source and ZenUML draws it right in the conversation. If the source does not parse, ZenUML reports each error with its line and column so ChatGPT can fix it and draw again.\n\nNo account or sign-in is needed, and nothing is saved: the diagram lives only in your conversation.",
         "developerName": "ZenUML",
         "category": "Productivity",
         "capabilities": [
-          "List the Confluence sites and ZenUML diagrams you can access",
-          "Read a diagram's source and show it rendered",
-          "Update a diagram with new source, refusing source that does not parse",
-          "Add a new diagram to an existing Confluence page",
-          "Read, create and update Confluence pages"
+          "Draw ZenUML sequence diagrams from text",
+          "Draw Mermaid flowcharts, state, class and other Mermaid diagrams",
+          "Draw PlantUML, draw.io XML and OpenAPI specifications",
+          "Report parse errors with line and column so the diagram can be fixed"
         ],
         "websiteURL": "https://zenuml.com",
         "supportURL": "https://zenuml.com/docs/products/zenuml-diagrams-for-confluence/mcp-server/",
         "privacyPolicyURL": "https://zenuml.com/privacy/",
         "termsOfServiceURL": "https://zenuml.com/terms/",
         "defaultPrompt": [
-          "List the ZenUML diagrams on my Confluence site",
-          "Update the login sequence diagram to add a token refresh step",
-          "Add a Mermaid flowchart of our deploy steps to a Confluence page"
+          "Draw a sequence diagram of an OAuth login with PKCE",
+          "Turn these deploy steps into a flowchart",
+          "Draw this OpenAPI spec as API documentation"
         ],
         "brandColor": "#0052CC",
         "logo": "./assets/logo.png"
@@ -44,34 +51,34 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Lists the Confluence sites the signed-in account can reach.",
-              "prompt": "Which Confluence sites can ZenUML reach for me?",
-              "tools_triggered": "list_sites",
-              "expected_behavior": "Returns the test site with its name, URL and cloudId."
+              "description": "Draws a ZenUML sequence diagram from a description.",
+              "prompt": "Draw a sequence diagram where a user logs in through a web app that calls an auth service and a user database.",
+              "tools_triggered": "render_diagram",
+              "expected_behavior": "Shows a rendered sequence diagram with User, WebApp, AuthService and the database, and says the source parsed."
             },
             {
-              "description": "Lists diagrams on the test site, newest first.",
-              "prompt": "List the ZenUML diagrams on my Confluence site.",
-              "tools_triggered": "list_sites, list_diagrams",
-              "expected_behavior": "Returns the sample diagrams with titles, types and the pages they are on."
+              "description": "Draws a Mermaid flowchart.",
+              "prompt": "Draw a flowchart of these steps: build, test, deploy to staging, deploy to production.",
+              "tools_triggered": "render_diagram",
+              "expected_behavior": "Shows a rendered left-to-right or top-down flowchart with the four steps in order."
             },
             {
-              "description": "Reads one diagram and shows it rendered.",
-              "prompt": "Show me the Order checkout sequence diagram.",
-              "tools_triggered": "list_sites, list_diagrams, read_diagram",
-              "expected_behavior": "Returns the diagram's ZenUML source and renders the sequence diagram inline."
+              "description": "Draws PlantUML when asked for it.",
+              "prompt": "Draw a PlantUML class diagram with Order, OrderLine and Product, where an Order has many OrderLines.",
+              "tools_triggered": "render_diagram",
+              "expected_behavior": "Shows a rendered PlantUML class diagram with the three classes and the one-to-many association."
             },
             {
-              "description": "Updates an existing diagram with a new step.",
-              "prompt": "In the Order checkout diagram, add a call from OrderService to InventoryService.reserve(items) before payment.",
-              "tools_triggered": "list_sites, list_diagrams, read_diagram, update_diagram",
-              "expected_behavior": "After confirmation, saves the new source; the rendered diagram shows the added reserve call and the Confluence page shows it too."
+              "description": "Draws an OpenAPI specification.",
+              "prompt": "Draw an OpenAPI spec for a small pet store API with GET /pets and POST /pets.",
+              "tools_triggered": "render_diagram",
+              "expected_behavior": "Shows the rendered API documentation with both operations."
             },
             {
-              "description": "Adds a new Mermaid diagram to an existing page.",
-              "prompt": "Add a Mermaid flowchart of the steps build, test, deploy to staging, deploy to production to the Release process page.",
-              "tools_triggered": "list_sites, read_page, create_diagram",
-              "expected_behavior": "After confirmation, appends the flowchart to the end of the page and publishes one page version; reports success with the page title."
+              "description": "Handles a source that does not parse.",
+              "prompt": "Draw this ZenUML diagram: A->B.call() { B->C: notify {",
+              "tools_triggered": "render_diagram",
+              "expected_behavior": "ChatGPT either corrects the unclosed braces before drawing, or the first render_diagram call reports the parse errors with line and column and ChatGPT corrects them and calls again. Either way the final result says the source parsed, the diagram is shown, and ChatGPT says what it changed."
             }
           ],
           "negative": [
@@ -80,12 +87,12 @@
               "prompt": "What is the capital of Australia?"
             },
             {
-              "description": "Diagramming request with no Confluence involvement; ChatGPT can answer directly without these tools.",
+              "description": "Explanation request with no drawing; ChatGPT can answer without the tool.",
               "prompt": "Explain what a UML sequence diagram is."
             },
             {
-              "description": "Request for an unsupported product (Jira issues); the app has no tool for it and should not claim to.",
-              "prompt": "Create a Jira ticket for the login bug."
+              "description": "Request to save to a third-party service, which this app cannot do; it should not claim to have saved anything.",
+              "prompt": "Save this diagram to my Confluence page."
             }
           ]
         },
