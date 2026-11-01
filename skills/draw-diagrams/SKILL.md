@@ -33,8 +33,10 @@ nothing is saved: the diagram exists only in this conversation.
 4. **Show the user the source too**, briefly, so they can keep or edit it.
 
 For each language's rules, read the connector's `zenuml://dsl-guide`, `mermaid://dsl-guide`,
-`plantuml://dsl-guide` or `openapi://dsl-guide` resource. The `confluence-diagrams` skill in this
-plugin has a short ZenUML syntax summary as well.
+`plantuml://dsl-guide` or `openapi://dsl-guide` resource.
+<!-- claude-only -->
+The `confluence-diagrams` skill in this plugin has a short ZenUML syntax summary as well.
 
 To save a diagram to a Confluence page, use the `zenuml` Confluence connector instead (see the
 `confluence-diagrams` skill), where it is installed.
+<!-- /claude-only -->

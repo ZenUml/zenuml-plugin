@@ -8,11 +8,10 @@
     "email": "support@zenuml.com",
     "url": "https://zenuml.com"
   },
-  "homepage": "https://zenuml.com/docs/products/zenuml-diagrams-for-confluence/mcp-server/",
+  "homepage": "https://zenuml.com/docs/products/zenuml-render-mcp-server/",
   "repository": "https://github.com/ZenUml/zenuml-plugin",
   "license": "MIT",
   "keywords": [
-    "confluence",
     "diagrams",
     "sequence-diagram",
     "mermaid",
@@ -36,7 +35,7 @@
           "Report parse errors with line and column so the diagram can be fixed"
         ],
         "websiteURL": "https://zenuml.com",
-        "supportURL": "https://zenuml.com/docs/products/zenuml-diagrams-for-confluence/mcp-server/",
+        "supportURL": "https://zenuml.com/docs/products/zenuml-render-mcp-server/",
         "privacyPolicyURL": "https://zenuml.com/privacy/",
         "termsOfServiceURL": "https://zenuml.com/terms/",
         "defaultPrompt": [
@@ -98,6 +97,9 @@
         },
         "demo_recording_url": "https://example.com/replace-with-demo-recording",
         "commerce": false
+      },
+      "publication": {
+        "release_notes": "First release in the ChatGPT directory: one read-only tool, render_diagram, that draws ZenUML sequence, Mermaid, PlantUML, draw.io and OpenAPI diagrams in the conversation and reports parse errors with line and column. No sign-in; nothing is saved."
       }
     }
   }
