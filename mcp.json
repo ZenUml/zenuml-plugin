@@ -3,7 +3,7 @@
   "mcpServers": {
     "zenuml-render": {
       "type": "streamable-http",
-      "url": "https://conf-lite.zenuml.com/mcp/render"
+      "url": "https://zenuml.com/mcp"
     }
   }
 }

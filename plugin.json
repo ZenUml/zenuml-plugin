@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "zenuml",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Draw ZenUML sequence diagrams, Mermaid, PlantUML, draw.io and OpenAPI diagrams in ChatGPT from text. No account or sign-in; nothing is saved.",
   "author": {
     "name": "ZenUML",

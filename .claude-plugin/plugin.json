@@ -1,7 +1,7 @@
 {
   "name": "zenuml",
   "displayName": "ZenUML for Confluence",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Draw ZenUML, Mermaid, PlantUML, draw.io and OpenAPI diagrams in the conversation with no sign-in, and read, create and update them on your Confluence Cloud pages, acting as you through Atlassian OAuth.",
   "author": {
     "name": "ZenUML",

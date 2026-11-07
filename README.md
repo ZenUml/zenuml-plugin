@@ -13,7 +13,7 @@ diagrams.net (draw.io) graphs and OpenAPI specifications.
 
 | Component | What it does | Needs |
 |---|---|---|
-| `zenuml-render` MCP server (`https://conf-lite.zenuml.com/mcp/render`) | One read-only tool, `render_diagram`: draws a diagram from its source in the conversation and reports parse errors with line and column. Nothing is saved. | Nothing: no account, no sign-in |
+| `zenuml-render` MCP server (`https://zenuml.com/mcp`) | One read-only tool, `render_diagram`: draws a diagram from its source in the conversation and reports parse errors with line and column. Nothing is saved. | Nothing: no account, no sign-in |
 | `zenuml` MCP server (`https://conf-lite.zenuml.com/agent-link/mcp`) | Confluence tools: `list_sites`, `list_diagrams`, `read_diagram`, `read_page`, `get_status` (read-only), and `create_diagram`, `update_diagram`, `create_page`, `update_page` (write). | A Confluence Cloud site with ZenUML installed, and an Atlassian sign-in |
 | `draw-diagrams` skill | How to pick a diagram language, render, and fix parse errors. | — |
 | `confluence-diagrams` skill | The read-before-write workflow for Confluence, which diagram type fits which job, and the ZenUML sequence syntax. | — |
