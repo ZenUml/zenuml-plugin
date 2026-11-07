@@ -6,7 +6,7 @@
     },
     "zenuml-render": {
       "type": "http",
-      "url": "https://conf-lite.zenuml.com/mcp/render"
+      "url": "https://zenuml.com/mcp"
     }
   }
 }
